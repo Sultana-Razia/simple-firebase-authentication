@@ -28,6 +28,7 @@ function App() {
     signInWithPopup(auth, githubProvider)
       .then(result => {
         const user = result.user;
+        setUser(user);
         console.log(user);
       })
       .catch(error => {
@@ -48,7 +49,7 @@ function App() {
   return (
     <div className="App">
       {
-        user.email ? <button onClick={handleSignOut}>Sign Out</button>
+        user.uid ? <button onClick={handleSignOut}>Sign Out</button>
           :
           <>
             <button onClick={handleGoogleSignIn}>Google Sign In</button>
